@@ -1,0 +1,226 @@
+/* Base styles for the App */
+.App {
+  background-color: lightpink; /* Light blue background */
+  min-height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Centering and styling the auth section */
+.authSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px); /* Adjust height to center vertically */
+  background-color: #ffffff; /* White background for forms */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Form input and button styles */
+.authInput,
+.authButton {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.authButton {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.authButton:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.toggleButton {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggleButton:hover {
+  text-decoration: underline; /* Underline effect on hover */
+}
+
+/* Main content styles */
+#mainContent {
+  padding: 20px;
+  flex: 1; /* Take remaining space */
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+  padding: 10px 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.navButton {
+  color: white;
+  background-color: #007BFF; /* Primary button color */
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.navButton:active {
+  background-color: #004080; /* Even darker when clicked */
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333; /* Dark footer background */
+  color: white;
+}
+
+/* Styling for the table */
+#stockTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#stockTable th, #stockTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#stockTable th {
+  background-color: #007BFF;
+  color: white;
+}
+
+#stockTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#stockTable tr:hover {
+  background-color: #ddd;
+}
+
+/* Add product section styles */
+.addProductSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px; /* Set a max width for better layout */
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Additional styling for inputs and buttons */
+input {
+  margin: 5px;
+  padding: 10px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Specific styles for the Add Product form */
+.addProductButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.addProductButton:hover {
+  background-color: #deeppink;
+}
+
+/* Styling for the user display section */
+#userDisplaySection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#userDisplaySection button {
+  margin-left: 15px;
+  padding: 5px 10px;
+  background-color: #dc3545; /* Logout button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#userDisplaySection button:hover {
+  background-color: #c82333;
+}
+
+/* Ensure the form groups are structured */
+.formGroup {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Responsive input styles */
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
