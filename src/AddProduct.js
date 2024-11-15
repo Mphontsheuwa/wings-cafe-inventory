@@ -1,6 +1,5 @@
-// src/components/AddProduct.js
 import React from 'react';
-//import './AddProduct.css'; // Assuming you will create this CSS file for styles
+// import './AddProduct.css'; // Assuming you will create this CSS file for styles
 
 function AddProduct({ 
   productName, 

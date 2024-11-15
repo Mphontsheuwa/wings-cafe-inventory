@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import Slider from 'react-slick';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// Import images directly
+import image1 from './images/image1.jpeg';
+import image2 from './images/image2.jpeg';
+import image3 from './images/image3.jpeg';
+import image4 from './images/image4.jpeg';
 
 function Dashboard({ products, handleDeleteProduct, isLowStock, handleEditProduct }) {
   const [editIndex, setEditIndex] = useState(null);
@@ -9,6 +19,8 @@ function Dashboard({ products, handleDeleteProduct, isLowStock, handleEditProduc
     price: '',
     quantity: '',
   });
+
+  const images = [image1, image2, image3];
 
   const handleEditClick = (index) => {
     setEditIndex(index);
@@ -29,9 +41,71 @@ function Dashboard({ products, handleDeleteProduct, isLowStock, handleEditProduc
     }
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
+  const styles = {
+    carouselContainer: {
+      marginTop: '20px',
+      width: '100%',
+      maxWidth: '600px',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+    imgStyle: {
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      maxHeight: '300px',
+      width: 'auto',
+    },
+    lowStock: {
+      color: 'red',
+    },
+    actionButtons: {
+      marginLeft: '10px',
+    },
+    chartContainer: {
+      width: '100%',
+      maxWidth: '800px',
+      margin: '40px auto',
+    }
+  };
+
   return (
     <section id="overview">
       <h2>Current Stock Levels</h2>
+      <div style={styles.carouselContainer}>
+        <Slider {...settings}>
+          {images.map((src, idx) => (
+            <div key={idx}>
+              <img src={src} alt={`Slide ${idx + 1}`} style={styles.imgStyle} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      {/* Stock Levels Graph */}
+      <div style={styles.chartContainer}>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={products} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="quantity" fill="#8884d8" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
       <table id="stockTable">
         <thead>
           <tr>
@@ -98,7 +172,7 @@ function Dashboard({ products, handleDeleteProduct, isLowStock, handleEditProduc
                   product.price
                 )}
               </td>
-              <td style={{ color: isLowStock(product.quantity) ? 'red' : 'black' }}>
+              <td style={isLowStock(product.quantity) ? styles.lowStock : {}}>
                 {editIndex === index ? (
                   <input
                     type="number"
@@ -118,8 +192,8 @@ function Dashboard({ products, handleDeleteProduct, isLowStock, handleEditProduc
                 ) : (
                   <>
                     <button className="editButton" onClick={() => handleEditClick(index)}>Edit</button>
-                    <button className="sellButton" onClick={() => handleSellProduct(index)} style={{ marginLeft: '10px' }}>Sell</button>
-                    <button className="deleteButton" onClick={() => handleDeleteProduct(index)} style={{ marginLeft: '10px' }}>Delete</button>
+                    <button className="sellButton" onClick={() => handleSellProduct(index)} style={styles.actionButtons}>Sell</button>
+                    <button className="deleteButton" onClick={() => handleDeleteProduct(index)} style={styles.actionButtons}>Delete</button>
                   </>
                 )}
               </td>
